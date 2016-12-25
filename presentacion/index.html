@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>PFC - Linked Data</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Guillermo García Juanes">
+		<meta name="author" content="Alioth Rodriguez">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+        
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<br><br>
+					<h2>Linked Data en el entorno Universitario</h2>
+					<h4>Camino hacia las cinco estrellas.</h4>
+					<div style="margin-top : 2%">
+						<small>Alioth Rodríguez<br>
+						Guillermo García Juanes						
+						<br>Tutor: José Luis García Roda</small>
+						<br><br>
+						<small>17 de Julio de 2013</small>
+					</div>                      		
+                    <div align="right" style="margin-top : 2%">
+                        <img style="margin-right : 2%;
+                        			border: none;
+									box-shadow: none;
+                                    background: none;" src="img/logo_ULL_ETSIIsinfondoblanco.png" width="313" height="101">
+                    </div>
+				</section>
+				<section>
+					<h2>Índice</h2>
+                    <div align="left">
+                        <ul>
+							<li>¿Qué es Linked Data?</li>
+                            <li>Problema presentado</li>
+                            <li>Objetivos</li>
+                            <li>Solución</li>
+                            <li>Demostración</li>
+                            <li>Conclusión</li>
+                        </ul>
+                    </div>
+				</section>
+				<section>
+				<section>
+                    	<h2>¿Qué es Linked Data?</h2>
+						    <ul>
+                                <li>Web Semántica</li>
+								<ul>
+									<li>Definición</li>
+									<li>Componentes</li>
+									<li>Tecnologías</li>
+								</ul>
+                                <li>Linked Data</li>
+                                <ul>
+									<li>Definición</li>
+									<li>Principios básicos</li>
+									<li>Open Data</li>
+								</ul>
+							</ul>
+                    </section>
+                    <section>
+                    	<h2>Web Semántica</h2>
+						<h3>Definición</h3>
+						<p>Se basa en la publicación de datos que sean entendibles tanto por personas como por máquinas, usando principalmente metadatos.</p>
+                    </section>
+					<section>
+                    	<h2>Web Semántica</h2>
+						<h3>Componentes</h3>
+						<ul>
+                                <li>URIs</li>
+                                <li>Lenguaje</li>
+								<li>Ontología </li>
+								<li>Datos instanciados </li>
+                                <li>Declaraciones semánticas</li>
+                        </ul>
+                    </section>
+					<section>
+                    	<h2>Web Semántica</h2>
+						<h3>Componentes</h3>
+						<img src="img/websemanticacomponentes.png" 
+						style="border: none;
+						box-shadow: none;
+                        background: none;">
+                    </section>
+					<section>
+                    	<h2>Web Semántica</h2>
+						<h3>Componentes</h3>
+						<h4>Declaraciones semánticas</h4>
+						<pre style="width: 100%; word-wrap:none"><code data-trim >
+						acadullres:students/101 ull:provincia orgullres:regions/Santa_Cruz_de_Tenerife
+acadullres:students/101 rdf:type acadull:Alumno
+orgullres:regions/Santa_Cruz_de_Tenerife rdf:type coreull:Provincia
+						</pre></code>
+                    </section>
+					<section>
+                    	<h2>Web Semántica</h2>
+						<h3>Tecnologías</h3>
+						<ul>
+                                <li>RDF. Formato estándar</li>
+								<ul>
+									<li>RDF/XML</li>
+									<li>Turtle</li>
+									<li>N-Triples</li>
+								</ul>
+								<li>RDF Schema. Permite la creación de clasificaciones</li>
+                                <li>OWL. Permite la creación de ontologías/vocabularios</li>
+                                <li>SPARQL. Permite la realización de consultas</li>
+                        </ul>
+                    </section>
+                    <section>
+                    	<h2>Linked Data</h2>
+						<h3>Definición</h3>
+						<p style="font-size:75%">
+						Este término es lo mismo que Web Semántica, con la única característica que alguno de los datos publicados se encuentren referenciados hacia otra fuente de datos.
+						</p>
+						<img src="img/lod-cloud_colored.png" style="width:65%">
+                    </section>
+					<section>
+                    	<h2>Linked Data</h2>
+						<h3>Principios básicos</h3>
+						<ul>
+							<li>Nombramiento de las cosas por URIs</li>
+							<ul>
+								<li style="font-size:75%; margin-bottom:-3%">Minting HTTP URIs <br><small>Dominio propio evitando duplicidad</small></li>
+								<li style="font-size:75%; margin-bottom:-3%">Meaningful URI <br><small>http://www.example.org/pais#España vs http://www.example.org/123#aa</small></li>
+								<li style="font-size:75%; margin-bottom:-3%">Cool URIs<br><small>Independientes por formatos e invariables. </small></li>
+							</ul>
+							<li>Creación de Dereferenceable URIs</li>
+							<ul>
+								<li style="font-size:75%; margin-bottom:-3%">303 URIs <br><small> http://dominio/resources/TEA -> ../TEA.rdf o ../TEA.html (según cabecera HTTP) </small></li>
+								<li style="font-size:75%; margin-bottom:-3%">Hash URIs <br><small> http://dominio/resources#TEA</small></li>
+							</ul>
+							<li>Proveer información a partir de estándares </br><small>(RDF, RDFS, OWL)</small></li>
+							<li>Incluir enlaces a otras fuentes de datos</li>
+						</ul>
+						
+                    </section>
+					<section>
+                    	<h2>Linked Data</h2>
+						<h3>Open Data</h3>
+						<div style="width:60%; display:inline-block;">
+                        <ul>
+							<li>★ PDF, etc.</li>
+							<li>★ ★ Excel</li>
+							<li>★ ★ ★ CSV, JSON, XML, etc.</li>
+							<li>★ ★ ★ ★ RDF y SPARQL</li>
+							<li>★ ★ ★ ★ ★ Linked Data</li>
+						</ul>
+						<br><br><br>
+                      </div>
+                 	  <div style="width:39%; display:inline-block">
+                   	  	<img src="img/tim.jpg" width="100%" height="100%">
+                     </div>
+                    </section>
+					</section>
+                <section>
+                	<section>
+                        <h2>Problema presentado</h2>
+                        <ul>
+                            <li>Situación Actual</li>
+                            <li>Problemática</li>
+                        </ul> 
+                    </section>
+                  <section>
+                    	<h2>Situación Actual</h2>
+                    <div style="width:50%; display:inline-block">
+                    	<ul>
+                        	<li>Aplicación ERP de gestión universitaria aportada por terceros</li>
+                            <li>Gran cantidad de información</li>
+                        	<li>Base de datos:</li>
+                            <ul>
+                            	<li>Distribuida</li>
+                                <li>Disgregada</li>
+                                <li>Compleja</li>
+                                <li>Sin poder modificarla</li>
+                            </ul>
+                      </ul><br><br>
+                      </div>
+                      <div style="width:45%; display:inline-block">
+               	  	  <img src="img/ArquitecturaReal.png" width="341" height="400"> </div>
+                    </section>
+                    <section>
+                    	<h2>Problemática</h2>
+                        <div align="left">
+                        	<ul>
+                            	<li><b>Sobrecarga</b> del Gabinete de Planificación ULL</li>
+                                <li>Modelo dificil de comprender</li>
+                        		<li>Obtener información es muy <b>costoso</b></li>
+                        		<li>Información <b>no</b> normalizada</li>
+                        		<li>La información está, <b>¿dónde?</b> No se sabe</li>
+                             </ul>
+                        </div>
+                    </section>
+                </section>
+				<section>
+					<h2>¿Es Linked Data la solución?</h2>
+				</section>
+                <section>
+                	<section>
+                    	<h2>Objetivos</h2>
+                        <div style="width:40%; display:inline-block">
+	                    	<img src="img/bombilla.jpg" width="241" height="300">
+                        </div>
+	                    <div style="width:55%; display:inline-block">
+                            <ul>
+								<li>Implementar plataforma web Open Data - Linked Data</li>
+                                <li>Reducir la complejidad para realizar consultas</li>
+                                <li>Evitar el problema de bases de datos distribuidas</li>
+                                <li>Promover filosofías de Transparencia y Open Government</li>
+                            </ul><br><br>
+                        </div>
+                    </section>
+					
+                </section>
+				<!-- 
+                <section>
+               		<h2>Solución</h2>
+                	<img src="img/ArquitecturaSolucion.png" width="436" height="497">
+                </section>
+				-->
+				<section>
+               		<h2>Metodología usada</h2>
+                	<img src="img/Procesodepublicacion.png" width="100%" style="border:none">
+				</section>
+                <section>
+                	<section>
+                    	<h2>Especificación de la información</h2>
+                        <ul>
+                            <li>Fuentes de datos independientes</li>
+                            <li>De interés</li>
+                            <li>Teniendo en cuenta LOPD</li>
+                            <li>Cumplen los principios de Linked Data</li>
+                        </ul>                        
+                    </section>
+                  <section>
+                   	<h2>Organización</h2>
+                    	<img src="img/modelo_er_organizacion.jpeg" width="90%" height="90%">
+                    </section>
+                  <section>
+                   	<h2>Académico</h2>
+                   	<img src="img/gestionacademicav0.3.png" width="90%" height="90%"></section>
+                </section>
+                <section>
+                	<section>
+                    	<h2>Modelado</h2>
+                        <h3>Decisión tomada</h3>
+                        <ul>
+                        	<li>La creación de una ontología</li>
+                            <li>Basada en NeOn Methology, y en concreto:
+                            	<ul>
+                                	<li>Reusar</li>
+                                    <li>Reingeniería</li>
+                                    <li>Modular</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                	<section>
+                    	<h2>Ontología</h2>
+                        <h3>Justificación</h3>
+                        <ul>
+                            <li>Dividir en tres secciones <br><small>(core, académica y organizativa)</small></li>
+                            <li>Permitir manejar un dominio propio</li>
+                            <li>Alinear con otras ontologías</li>
+                        </ul>
+                    </section>
+                  	<section>
+                    	<h2>Ontología</h2>
+                    	<h3>Dominio modelado</h3>
+                    	<img src="img/Ontologia.png" width="625" height="515">
+                    </section>
+                    <section>
+                    	<h2>Ontología</h2>
+                        <h3>Alineado</h3>
+                        <div style="width:49%; display:inline-block; font-size:70%;">
+                        <ul>
+                        	<li style="font-size:85%; margin-bottom:-5%"><b>F</b>riend <b>o</b>f <b>a</b> <b>F</b>riend project
+                            <br><small>relación entre agentes (personas/organizaciones</small></li>
+                            <li style="font-size:85%; margin-bottom:-5%"><b>A</b>cademic <b>I</b>nstitution <b>I</b>nternal <b>S</b>tructure <b>O</b>ntology</b>
+                            <br><small>organización académica</small></li>
+                            <li style="font-size:85%; margin-bottom:-5%"><b>Teach</b>ing Core Vocabulary:
+                            <br><small>quien enseña que</small>
+                            <li>Buildings and <b>Rooms</b> Vocabulary
+                            <br><small>edificios, campus y sedes</small></span>
+                            <li style="font-size:85%; margin-bottom:-5%"><b>Org</b>anization Ontology
+                            <br><small>organizaciones y cargos</small></li>
+                            <li style="font-size:85%; margin-bottom:-5%">Vocabulario de <b>Loc</b>alizaciones
+                            <br><small>direcciones, situación geográfica</small></li>
+                            <li style="font-size:85%; margin-bottom:-5%"><b>S</b>imple <b>K</b>nowledge <b>O</b>rganization <b>S</b>ystem
+                            <br><small>clasificación e identificación</small></li>
+                        </ul>
+                        </div>
+                        <div style="width:50%; display:inline-block">
+                   	    	<img src="img/alineado.png" width="482" height="463">
+                        </div>
+                    </section>
+                </section>
+                <section>
+                	<section>
+                    	<h2>Publicar la información</h2>
+						<h3>Tecnologías a usar</h3>
+						<p>Distribuidas (2 Servidores)</p>
+						<p>
+						<img src="img/mysql.png" style="width:25%; height:25%; border:none">
+						<img src="img/d2r.png" style="width:25%; height:25%; border:none">
+						</p>
+                    </section>
+                    <section>
+                    	<h3>Publicar la información</h3>
+	                    <div style="width:50%; display:inline-block">
+							<h4>BBDD: Organización</h4>
+                            <ul>
+                                <li>Preparación para enlazado externo <br><small>Tabla Linked</small></li>
+						    </ul><br><br><br><br><br><br><br><br><br>
+                        </div>
+                        <div style="width:45%; display:inline-block">
+	                    	<img src="img/organizacion.ull_final.png" width="435" height="598">
+                        </div>
+                    </section>
+               	  <section>
+               		<h3>Publicar la información</h3>
+                 	  <div style="width:50%; display:inline-block">
+							<h4>BBDD: Académica</h4>
+                      		<ul>
+                                <li>Información BBDD Organizativa<br><small>Motor de almacenamiento FEDERATED</small></li>
+                                <li>Preparación para enlazado directo</li>
+                            </ul><br><br><br><br><br><br><br><br><br>
+                      </div>
+                      <div style="width:45%; display:inline-block">
+	                   	  <img src="img/modelorelacionalacad.png" width="424" height="605">
+                      </div>
+                  	</section>
+					<section>
+               		<h2>Publicar la información</h2>
+					<h3>D2R</h3>
+                 	  <ul>
+						<li>Creado por Chris Bizer</li>
+						<li>Archivo de mapeo de la BBDD<br><small>D2RQ Mapping File - Turtle</small></li>
+						<li>Interfaz Web basada en Pubby</li>
+						<li>EndPoint SPARQL</li>
+					  </ul>
+                  	</section>
+					<section>
+					<h3>Publicar la información</h3>
+					<h4>Implementación: Organización</h4>
+                 	<iframe src="http://193.145.101.225" style="width:900px; height:500px">
+					<p>prueba</p>
+					</iframe>
+                  	</section>
+					<section>
+					<h3>Publicar la información</h3>
+					<h4>Implementación: Académica</h4>
+                 	<iframe src="http://193.145.101.224" style="width:900px; height:500px">
+					<p>prueba</p>
+					</iframe>
+                  	</section>
+                </section>
+                <section>
+                	<section>
+                    	<h2>Enlazado</h2>
+                 	  <div style="width:50%; display:inline-block">
+                      	<img style="border:none" src="img/EnlazadoInternoExterno.png" width="399" height="393">
+                      </div>
+                 	  <div style="width:45%; display:inline-block">
+                        <ul>
+                        	<li>Enlazado Interno
+                            	<ul>
+                                	<li>URIs Predefinidas</li>
+                                </ul>
+                            </li>
+                            <li>Enlazado Externo</li>
+							<ul>
+                                	<li>Tabla Linked</li>
+                                </ul>
+                        </ul><br><br><br><br><br><br>
+                      </div>
+                    </section>
+					 <!--
+                	<section>
+	                	<h2>Enlazado Externo</h2>
+                 	  <div style="width:45%; display:inline-block">
+                        <ul>
+                            <li>Objetivo: cumplir las <b>5 estrellas</b></li>
+                        	<li>Conectar la información propia con la de otras <b>fuentes externas</b> <small>(dbpedia.org, geo.linkeddata.es)</small></li>
+                            <li>Promover consultas más ricas</li>
+                            <li>Automatizado</li>
+                        </ul><br><br>
+                      </div>
+                 	  <div style="width:50%; display:inline-block">
+                   	  	<img src="img/taza-cinco-estrellas.png" width="350" height="350">
+                     </div>
+                    </section>
+					-->
+                    <section>
+                    	<h2>Enlazado Externo</h2>
+                    	<h3>Proceso</h3>
+                        <div style="width:45%; display:inline-block">
+                            <ul>
+                                <li>Entradas
+                                    <ul>
+                                        <li>Recursos</li>
+                                        <li>Fichero LSL</li>
+                                    </ul>
+                                </li>
+                                <li>Pasos
+                                    <ol>
+                                        <li>Filtrar Fuentes</li>
+                                        <li>Matching</li>
+                                        <li>Insertar en la base de datos</li>
+                                        <li>Republicar</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                              <br><br><br>
+                        </div>
+						<div style="width:50%; display:inline-block">
+                   	    	<img src="img/ProcesoLinked.png" width="367" height="446">
+                        </div>
+                    </section>
+                	<section>
+	                    <h2>Enlazado Externo</h2>
+	                	<h3>Recursos Enlazados</h3>
+                 	  <div style="width:45%; display:inline-block">
+                        <ul>
+                        	<li>Datos Geograficos
+                            	<ul>
+                                	<li>Paises</li>
+                                    <li>Provincias</li>
+                                    <li>Municipios</li>
+                        			<li>Localidades</li>
+                                </ul>
+                            </li>
+                            <li>Institución</li>
+                        </ul><br><br><br>
+                        </div>
+                 	  <div style="width:50%; display:inline-block">
+                   	  	<img src="img/Fuentes_linked.png" width="352" height="331">
+                        </div>
+						<pre><code data-trim>
+                        orgull:countries/FRANCIA owl:sameAs dbpedia:Francia
+                        </code></pre>
+						<pre><code data-trim>
+                        orgull:localities/Santa_Cruz_de_Tenerife owl:sameAs
+                geolinkeddataes:Provincia/Santa%20Cruz%20de%20Tenerife
+                        </code></pre>
+                    </section>
+                </section>
+				<section>
+					<h2>Explotación</h2>
+                            <ul>
+								<li>Endpoint SPARQL</li>
+								<li>Fuseki
+									<ul>
+										<li>Basado en Apache Jena</li>
+										<li>Interfaz web</li>
+										<li>Consultas SPARQL enriquecidas
+											<ul>
+												<li>Consultas distribuidas</li>
+												<li>Funciones aritméticas</li>
+												<li>Funciones de agregación</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+				</section>
+                <section>
+                	<section>
+						<h2>Demostración</h2>
+                        <small>Cantidad de profesores por departamento</small>
+						<p align="left">Consulta en SQL</p>
+						<pre><code data-trim>
+SELECT DEP.NOMBRE as Nombre, COUNT(PRO.USUARIOLDAP) as Profesores
+FROM DEPARTAMENTO DEP, PROFESOR PRO
+WHERE DEP.CODIGO = PRO.PLAZA_DEPARTAMENTO_CODIGO
+GROUP BY DEP.CODIGO
+ORDER BY DEP.NOMBRE;
+					</code></pre>
+					<p align="left">Consulta en SPARQL</p>
+					<pre><code data-trim>
+PREFIX coreull: < http://orgull/ontologies/core# >
+PREFIX orgull: < http://orgull/ontologies/organization# >
+
+SELECT ?NombreDept (COUNT(?profesor) as ?NumeroProfesores) WHERE {
+   SERVICE < http://orgull/sparql > {
+          ?profesor orgull:miembro ?dept .
+          ?dept coreull:nombre ?NombreDept .
+   }
+} GROUP BY ?NombreDept
+  ORDER BY ?NombreDept
+
+						</code></pre>
+                    </section>
+                    <section>
+						<h2>Demostración</h2>
+                        <small>Número de veces que un departamento se vincula con una asignatura (según el profesorado)</small>
+						<p align="left">Consulta en SQL</p>
+                        <pre><code data-trim>
+SELECT PROF.USUARIOLDAP as Profesor, DEP.CODIGO as Departamento
+FROM DEPARTAMENTO DEP, PROFESOR PROF
+WHERE PROF.PLAZA_DEPARTAMENTO_CODIGO = DEP.CODIGO;
+						</code></pre>
+                        <pre><code data-trim>                        
+SELECT Profesor, COUNT(ASIGNATURA) as NumeroPlanificaciones
+FROM IMPARTIDA IMP
+GROUP BY IMP.PROFESOR
+
+                        </code></pre>
+						<p align="left">Consulta en SPARQL</p>
+                        <pre><code data-trim>
+SELECT ?NombreDept (COUNT(?planificacion) as ?numeroPlanicaciones) 
+WHERE {
+   SERVICE < http://orgull/sparql > {
+      ?profesor orgull:miembro ?dept .
+      ?dept coreull:nombre ?NombreDept .
+   }
+   SERVICE < http://acadull/sparql > {
+      ?planificacion acaull:tieneProfesor ?profesor .
+   }
+} GROUP BY ?NombreDept
+  ORDER BY ?NombreDept
+
+                        </code></pre>
+                    </section>
+                    <section>
+						<h2>Demostración</h2>
+                        <small>Distribución de alumnos por provincias y su geolocalización para mostrarlo en un mapa</small> 
+						<p align="left">Consulta en SPARQL</p>
+                        <pre><code data-trim>
+SELECT ?Provincia (COUNT(?alumno) as ?numeroAlumnos) ?geolocalizacion
+WHERE {
+	SERVICE < http://acadull/sparql > {
+    	?alumno a acaull:Alumno;
+		coreull:provincia ?prov .
+    }
+    SERVICE < http://orgull/sparql > {
+        ?prov coreull:nombre ?Provincia ;
+        	  owl:sameAs ?linked .
+    }
+    SERVICE < http://dbpedia.org/sparql > {
+    	?linked geo:lat ?geolocalizacion .
+    }
+} GROUP BY ?Provincia
+                        </code></pre>
+                    </section>
+				</section>
+				<section>
+                	<h2>Aplicaciones</h2>
+                    <ul>
+                    	<li>Guía con los edificiones, campus, facultades, etc. geolocalizados en un mapa</li>
+                        <li>Una aplicación para auto-generar guias docentes</li>
+                        <li>Portal estádistico (mostrando gráficas, mapas, informes, etc.)</li>
+                        <li>Portal informátivo sobre transportes y lugares universitarios (paradas, horarios, etc.)</li>
+                    </ul>
+                </section>
+                <section>
+                	<h2>Conclusiones</h2>
+                    <ul>
+                    	<li>Sector falto de madurez</li>
+                    	<li>Necesario un completo análisis de datos inicial</li>
+                        <li>Complejidad en la creación de ontologías</li>
+                        <li>Faltan complementos para las herramientas base</li>
+						<li>Realización de consultas desde diferentes datasets del mundo</li>
+                    </ul>
+                </section>
+				<section>
+					<h2>¿Esta solución es aplicable?</h2>
+					<h3>Sí, pero ...</h3>
+					<ul>
+						<li>No sustituiría al sistema actual</li>
+						<li>Sería un gran paso para Gobierno Abierto</li>
+					</ul>
+				</section>
+				<section>
+					<h2 style="margin-top:5%">Gracias por su atención</h2>
+				</section>
+				<section>
+					<br><br>
+					<h2>Linked Data en el entorno Universitario</h2>
+					<h4>Camino hacia las cinco estrellas.</h4>
+					<div style="margin-top : 2%">
+						<small>Alioth Rodríguez<br>
+						Guillermo García Juanes						
+						<br>Tutor: José Luis García Roda</small>
+						<br><br>
+						<small>17 de Julio de 2013</small>
+					</div>                      		
+                    <div align="right" style="margin-top : 2%">
+                        <img style="margin-right : 2%;
+                        			border: none;
+									box-shadow: none;
+                                    background: none;" src="img/logo_ULL_ETSIIsinfondoblanco.png" width="313" height="101">
+                    </div>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				touch: true,
+				keyboard: true,
+				 mouseWheel: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
